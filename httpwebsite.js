@@ -1,6 +1,6 @@
 var http = require('http');
 var fs = require('fs');
-
+//响应html文件
 var onRequest = function(request, response) {
     console.log('Request received');
     response.writeHead(200, { 'Content-Type': 'text/html' });
