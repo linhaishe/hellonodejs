@@ -1,16 +1,12 @@
 var http = require('http');
-//响应json
+var fs = require('fs');
 
 var onRequest = function(request, response) {
     console.log('Request received');
-    response.writeHead(200, { 'Content-Type': 'application/json' });
+    response.writeHead(200, { 'Content-Type': 'text/html' });
+    var myReadStream = fs.createReadStream(__dirname + '/index.html', 'utf8');
     // response.write('Hello from out application');
-    var myObj = {
-        name: "hfpp2012",
-        job: "programmer",
-        age: 27
-    };
-    response.end(JSON.stringify(myObj));
+    myReadStream.pipe(response);
 }
 
 var server = http.createServer(onRequest);
