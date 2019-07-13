@@ -2,7 +2,7 @@
 var fs = require('fs');
 
 //nodejs执行js时是单线程的IOO操作，如果一个阶段耗时，则会阻塞流程，因为同一时间只能执行一个任务，所以用异步进行处理
-//readFileSync将Sync去掉则为异步
+//readFileSync将Sync去掉则为异步，且都会有回调函数跟着
 //写nodejs最好都用异步的方式进行处理
 //因为是异步操作，finished 会最先被打印出来，以为其他的操作需要一定的时间进行处理
 var readMeOne = fs.readFile("readdemo.txt", "utf8", function(err, data) {
