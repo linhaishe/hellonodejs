@@ -1,3 +1,5 @@
+//node hellonodejs.js 即可查看输出
+
 function sayHi() {
     console.log('hi');
 }
@@ -21,7 +23,6 @@ var sayGoodbye = function (name) {
 
 callFunction(sayGoodbye, 'heather');
 
-//node hellonodejs.js 即可查看输出
 
 //回调函数写法2
 function callFunction(fun, name) {
@@ -31,3 +32,17 @@ function callFunction(fun, name) {
 callFunction(function (name) {
     console.log(name + ' bye!!!');
 },'heather');
+
+//模块
+
+// var counter = require('./count')
+// console.log(counter(['ruby','nodejd','react']));
+
+var stuff = require('./count')
+console.log(stuff.counter(['ruby','nodejd','react']));
+console.log(stuff.adder(3,6));
+console.log(stuff.pi);
+
+//暴露方法4
+var pi = require('./count').pi
+console.log(pi);
