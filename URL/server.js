@@ -3,7 +3,10 @@ var fs = require('fs');
 
 function startServer() {
     var onRequest = function(request, response) {
+        //request 封装了浏览器请求的各种参数信息，可以直接进行判断浏览器的各种请求
+        //console.log(request);//会输出很多信息
         console.log('Request received ' + request.url);
+        //request.url 输出获取到的路由信息
         if (request.url === '/' || request.url === '/home') {
             response.writeHead(200, { 'Content-Type': 'text/html' });
             fs.createReadStream(__dirname + '/index.html', 'utf8').pipe(response);
